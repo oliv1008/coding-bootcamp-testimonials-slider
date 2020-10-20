@@ -18,6 +18,7 @@ function prev() {
   } else {
     currentQuoteIndex -= 1;
   }
+  eltQuoteList[currentQuoteIndex].classList.remove("fadeout");
   eltQuoteList[currentQuoteIndex].classList.add("fadein");
 
   eltImgList[currentImgIndex].classList.remove("fadein");
@@ -27,6 +28,7 @@ function prev() {
   } else {
     currentImgIndex -= 1;
   }
+  eltImgList[currentImgIndex].classList.remove("fadeout");
   eltImgList[currentImgIndex].classList.add("fadein");
 }
 
@@ -38,6 +40,7 @@ function next() {
   } else {
     currentQuoteIndex += 1;
   }
+  eltQuoteList[currentQuoteIndex].classList.remove("fadeout");
   eltQuoteList[currentQuoteIndex].classList.add("fadein");
 
   eltImgList[currentImgIndex].classList.remove("fadein");
@@ -47,5 +50,6 @@ function next() {
   } else {
     currentImgIndex += 1;
   }
+  eltImgList[currentImgIndex].classList.remove("fadeout");
   eltImgList[currentImgIndex].classList.add("fadein");
 }

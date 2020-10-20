@@ -61,6 +61,10 @@ body {
   animation: fadein 1000ms both;
 }
 
+.fadeout {
+  animation: fadeout 1000ms both;
+}
+
 .main_container {
   display: flex;
   width: 1440px;
