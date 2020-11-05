@@ -38,8 +38,16 @@
     opacity: 0;
   }
 }
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: "interregular", "robotoregular", "sans-serif";
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .fadein {
@@ -50,158 +58,169 @@ body {
   animation: fadeout 1000ms both;
 }
 
-@media all and (min-device-width: 480px) {
-  .main_container {
-    display: flex;
-    width: 1440px;
-    position: fixed;
-    /*Centre par rapport au viewport*/
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.main_container {
+  height: 100%;
+  width: 77%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 8rem 1fr;
+  grid-template-rows: 100%;
+}
 
-  .testimonial_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 730px;
-    overflow: visible;
-    z-index: 2;
-  }
-  .testimonial_container .quote {
-    font-size: 32px;
-    position: absolute;
-    top: 200px;
-    left: 160px;
-    width: 650px;
-    line-height: 43px;
-    color: #202046;
-    opacity: 0;
-  }
-  .testimonial_container .quote p {
-    margin-top: 40px;
-    font-family: "interlight_beta";
-    color: #babacf;
-    font-size: 20px;
-  }
-  .testimonial_container .quote p strong {
-    font-family: "interbold";
-    color: #202046;
-  }
+.testimonial_container {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  z-index: 2;
+}
+.testimonial_container .quote {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  font-size: 3.2rem;
+  line-height: 4.3rem;
+  color: #202046;
+  opacity: 0;
+}
+.testimonial_container .quote .signature {
+  display: flex;
+}
+.testimonial_container .quote .signature :nth-child(1) {
+  font-family: "interbold";
+  font-size: 2rem;
+}
+.testimonial_container .quote .signature :nth-child(2) {
+  font-family: "interlight_beta";
+  color: #babacf;
+  font-size: 2rem;
+  margin-left: 1.5%;
+}
 
-  .img_slider_container {
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.411));
-    height: 597px;
-  }
-  .img_slider_container .img_container img {
-    position: absolute;
-    opacity: 0;
-  }
-  .img_slider_container .img_container .slider_container {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    z-index: 5;
-  }
-  .img_slider_container .img_container .slider_container button {
-    position: relative;
-    top: 515px;
-    left: 70px;
-    width: 50px;
-    height: 50px;
-    border: none;
-    outline: none;
-    background-color: #fff;
-    padding: 0;
-    cursor: pointer;
-    z-index: 10;
-  }
-  .img_slider_container .img_container .slider_container button img {
-    opacity: 1;
-    position: relative;
-  }
-  .img_slider_container .img_container .slider_container #button_next {
-    border-radius: 0 50px 50px 0;
-  }
-  .img_slider_container .img_container .slider_container #button_prev {
-    border-radius: 50px 0 0 50px;
-  }
+.img_slider_container {
+  width: 100%;
+  height: 100%;
+  grid-row: 1/2;
+  grid-column: 4/2;
+  background: url("../../images/pattern-bg.svg") center center/contain no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img_slider_container .img_container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.411));
+}
+.img_slider_container .img_container img {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  opacity: 0;
+  display: block;
+  margin: 0 auto;
+}
+.img_slider_container .img_container .slider_container {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  position: absolute;
+  top: 515px;
+  right: 400px;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+.img_slider_container .img_container .slider_container button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+.img_slider_container .img_container .slider_container button img {
+  opacity: 1;
+}
+.img_slider_container .img_container .slider_container #button_next {
+  border-radius: 0 50px 50px 0;
+}
+.img_slider_container .img_container .slider_container #button_prev {
+  border-radius: 50px 0 0 50px;
+}
 
-  #pattern-bg {
-    position: fixed;
-    top: 17%;
-    left: 47%;
-    z-index: -5;
-  }
+#pattern-quotes {
+  position: fixed;
+  top: 32%;
+  left: 22%;
+  z-index: -7;
+}
 
-  #pattern-curve {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-    z-index: -6;
-  }
-
-  #pattern-quotes {
-    position: fixed;
-    top: 32%;
-    left: 22%;
-    z-index: -7;
+@media all and (min-device-width: 1000px) {
+  body {
+    background: url("../../images/pattern-curve.svg") left bottom/50% no-repeat;
   }
 }
-@media all and (max-device-width: 480px) {
+@media all and (max-device-width: 1000px) {
   .main_container {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    background-color: red;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% auto;
+    background: url("../../images/pattern-curve.svg") left bottom/70% no-repeat;
   }
 
   .testimonial_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    z-index: 2;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    justify-content: end;
+    align-items: flex-end;
   }
   .testimonial_container .quote {
-    font-size: 8px;
-    line-height: 10px;
-    color: #202046;
-    opacity: 0;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    padding: 0 10%;
   }
   .testimonial_container .quote p {
-    margin-top: 15px;
-    font-family: "interlight_beta";
-    color: #babacf;
-    font-size: 8px;
+    margin: 0;
   }
-  .testimonial_container .quote p strong {
-    font-family: "interbold";
-    color: #202046;
+  .testimonial_container .quote .signature {
+    flex-direction: column;
+  }
+  .testimonial_container .quote .signature :nth-child(1) {
+    margin: 4rem 0 0 0;
+  }
+  .testimonial_container .quote .signature :nth-child(2) {
+    margin-left: 0;
   }
 
   .img_slider_container {
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.411));
+    grid-row: 1/2;
+    grid-column: 1/2;
+    background: url("../../images/pattern-bg.svg") center center/contain no-repeat;
   }
   .img_slider_container .img_container img {
-    opacity: 0;
-    display: block;
-    margin: 0 auto;
     max-width: 80%;
   }
   .img_slider_container .img_container .slider_container {
-    display: flex;
-    align-items: center;
-    z-index: 5;
+    position: absolute;
+    right: 40%;
+    top: 93%;
   }
   .img_slider_container .img_container .slider_container button {
     width: 50px;
@@ -215,6 +234,7 @@ body {
   }
   .img_slider_container .img_container .slider_container button img {
     opacity: 1;
+    margin: 0 auto;
   }
   .img_slider_container .img_container .slider_container #button_next {
     border-radius: 0 50px 50px 0;
@@ -223,27 +243,25 @@ body {
     border-radius: 50px 0 0 50px;
   }
 
-  #pattern-curve {
-    position: absolute;
-    bottom: 0%;
-    left: 0%;
-    z-index: -6;
-    width: 70%;
-  }
-
   #pattern-quotes {
     position: absolute;
-    top: 32%;
-    left: 22%;
-    z-index: -7;
-    opacity: 0;
+    left: 45%;
+    top: 55%;
+    width: 50px;
+    z-index: -5;
+  }
+}
+@media all and (max-device-width: 1000px) and (max-device-height: 800px) {
+  .img_slider_container .img_container img {
+    max-width: 60%;
+  }
+}
+@media all and (max-device-width: 350px) and (max-device-height: 700px) {
+  html {
+    font-size: 50%;
   }
 
-  #pattern-bg {
-    position: absolute;
-    top: 17%;
-    left: 47%;
-    z-index: -5;
-    opacity: 0;
+  .img_slider_container .img_container img {
+    max-width: 60%;
   }
 }
